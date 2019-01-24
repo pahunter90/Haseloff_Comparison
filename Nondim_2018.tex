@@ -46,24 +46,128 @@
 		\varepsilon = \frac{n+2}{n+1}\frac{q_r}{A\tau_s^nh_s^2}
 	\end{gather*}
 	
-	\section{Nondimensionalization of Equations}
-	\subsection{4 $ \rightarrow $ 24}
+	\section{Nondimensionalization of Velocity Equations}
+	Nondimensionalizing the equations in terms of dimensional scales (this section will not yet try write the scales in terms of parameters)\\
+	Here I use:
 	\begin{gather*}
-		\eta = \frac{A^{-1/n}}{2^{1/n}}\left[\left|\pd{u}{y}\right|^2 + \left|\pd{u}{z}\right|^2 + \left|\pd{v}{z} + \pd{w}{y}\right|^2 + 2\left|\pd{v}{y}\right|^2 + 2\left|\pd{w}{z}\right|^2\right]^{\frac{1-n}{2n}}\\
-		\frac{A^{-1/n}}{2^{1/n}}\left[\frac{\left[u\right]^2}{\left[z\right]^2}\left(\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2\right) + \frac{\left[v\right]^2}{\left[z\right]^2}\left(\left|\pd{V}{Z} + \pd{W}{Y}\right|^2 + 2\left|\pd{V}{Y}\right|^2 + 2\left|\pd{W}{Z}\right|^2\right)\right]^{\frac{1-n}{2n}}\\
-		\frac{A^{-1/n}}{2^{1/n}}\left(\frac{\left[u\right]}{\left[z\right]}\right)^{\frac{1-n}{n}}\left[\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2 + \frac{\left[v\right]^2}{\left[u\right]^2}\left(\left|\pd{V}{Z} + \pd{W}{Y}\right|^2 + 2\left|\pd{V}{Y}\right|^2 + 2\left|\pd{W}{Z}\right|^2\right)\right]^{\frac{1-n}{2n}}\\
-		\text{Which for now can be written as: }\left[\eta\right]\mu
+		\left[z\right] = h_s \qquad
+		y = \left[z\right]Y \qquad
+		z = \left[z\right]Z\\
+		u = \left[u\right]U \qquad
+		v = \left[v\right]V \qquad
+		w = \left[v\right]W\\
+		\eta = \left[\eta\right]\mu \qquad
+		p = \left[p\right]P
 	\end{gather*}
+	The convention I used here is to provide the equation number when it matches the same equation in Haseloff's paper. If the equation doesn't match an equation in Haseloff, but I plan to resolve the differences later in the notes I will denote that with primes.
 	\subsection{2 $ \rightarrow $ 22}
 	\begin{gather*}
-		\pd{}{y}\left(\eta\pd{u}{y}\right) + \pd{}{z}\left(\eta\pd{u}{z}\right) = 0\\
+		\pd{}{y}\left(\eta\pd{u}{y}\right) + \pd{}{z}\left(\eta\pd{u}{z}\right) = 0 \tag{2} \\
 		\frac{1}{\left[z\right]}\pd{}{Y}\left(\left[\eta\right]\mu\frac{\left[u\right]}{\left[z\right]}\pd{U}{Y}\right) + \frac{1}{\left[z\right]}\pd{}{Z}\left(\left[\eta\right]\mu\frac{\left[u\right]}{\left[z\right]}\pd{U}{Z}\right) = 0\\
 		\frac{\left[\eta\right]\left[u\right]}{\left[z\right]^2}\left[\pd{}{Y}\left(\mu\pd{U}{Y}\right) + \pd{}{Z}\left(\mu\pd{U}{Z}\right)\right] = 0\\
-		\pd{}{Y}\left(\mu\pd{U}{Y}\right) + \pd{}{Z}\left(\mu\pd{U}{Z}\right) = 0
+		\pd{}{Y}\left(\mu\pd{U}{Y}\right) + \pd{}{Z}\left(\mu\pd{U}{Z}\right) = 0 \tag{22}
 	\end{gather*}
 	\subsection{3a $ \rightarrow $ 23a}
 	\begin{gather*}
-		\pd{}{y}\left(\right)
+		\pd{}{y}\left(2\eta\pd{v}{y}\right) + \pd{}{z}\left[\eta\left(\pd{v}{z}+\pd{w}{y}\right)\right] - \pd{p}{y} = 0 \tag{3a} \\
+		\frac{1}{\left[z\right]}\pd{}{Y}\left(2\left[\eta\right]\mu\frac{\left[v\right]}{\left[z\right]}\pd{V}{Y}\right) + \frac{1}{\left[z\right]}\pd{}{Z}\left[\left[\eta\right]\mu\frac{\left[v\right]}{\left[z\right]}\left(\pd{V}{Z}+\pd{W}{Y}\right)\right] - \frac{\left[p\right]}{\left[z\right]}\pd{P}{Y} = 0\\
+		\frac{\left[\eta\right]\left[v\right]}{\left[z\right]^2}\pd{}{Y}\left(2\mu\pd{V}{Y}\right) + \frac{\left[\eta\right]\left[v\right]}{\left[z\right]^2}\pd{}{Z}\left[\mu\left(\pd{V}{Z}+\pd{W}{Y}\right)\right] - \frac{\left[p\right]}{\left[z\right]}\pd{P}{Y} = 0 \tag{3a$'$}
+	\end{gather*}
+	\subsection{3b $ \rightarrow $ 23b}
+	\begin{gather*}
+		\pd{}{y}\left[\eta\left(\pd{v}{z}+\pd{w}{y}\right)\right] + \pd{}{z}\left(2\eta\pd{w}{z}\right) - \pd{p}{z} = 0 \tag{3b} \\
+		\frac{1}{\left[z\right]}\pd{}{Y}\left[\left[\eta\right]\mu\frac{\left[v\right]}{\left[z\right]}\left(\pd{V}{Z}+\pd{W}{Y}\right)\right] + \frac{1}{\left[z\right]}\pd{}{Z}\left(2\left[\eta\right]\mu\frac{\left[v\right]}{\left[z\right]}\pd{W}{Z}\right) - \frac{\left[p\right]}{\left[z\right]}\pd{P}{Z} = 0\\
+		\frac{\left[\eta\right]\left[v\right]}{\left[z\right]^2}\pd{}{Y}\left[\mu\left(\pd{V}{Z}+\pd{W}{Y}\right)\right] + \frac{\left[\eta\right]\left[v\right]}{\left[z\right]^2}\pd{}{Z}\left(2\mu\pd{W}{Z}\right) - \frac{\left[p\right]}{\left[z\right]}\pd{P}{Z} = 0 \tag{3b$'$}
+	\end{gather*}
+	\subsection{3c $ \rightarrow $ 23c}
+	\begin{gather*}
+		\pd{v}{y} + \pd{w}{z} = 0 \tag{3c} \\
+		\frac{\left[v\right]}{\left[z\right]}\pd{V}{Y} + \frac{\left[v\right]}{\left[z\right]}\pd{W}{Z} = 0\\
+		\pd{V}{Y} + \pd{W}{Z} = 0 \tag{23c}
+	\end{gather*}
+	\subsection{4 $ \rightarrow $ 24}
+	\begin{gather*}
+		\eta = \frac{A^{-1/n}}{2^{1/n}}\left[\left|\pd{u}{y}\right|^2 + \left|\pd{u}{z}\right|^2 + \left|\pd{v}{z} + \pd{w}{y}\right|^2 + 2\left|\pd{v}{y}\right|^2 + 2\left|\pd{w}{z}\right|^2\right]^{\frac{1-n}{2n}} \tag{4} \\
+		\frac{A^{-1/n}}{2^{1/n}}\left[\frac{\left[u\right]^2}{\left[z\right]^2}\left(\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2\right) + \frac{\left[v\right]^2}{\left[z\right]^2}\left(\left|\pd{V}{Z} + \pd{W}{Y}\right|^2 + 2\left|\pd{V}{Y}\right|^2 + 2\left|\pd{W}{Z}\right|^2\right)\right]^{\frac{1-n}{2n}}\\
+		\frac{A^{-1/n}}{2^{1/n}}\left(\frac{\left[u\right]}{\left[z\right]}\right)^{\frac{1-n}{n}}\left[\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2 + \frac{\left[v\right]^2}{\left[u\right]^2}\left(\left|\pd{V}{Z} + \pd{W}{Y}\right|^2 + 2\left|\pd{V}{Y}\right|^2 + 2\left|\pd{W}{Z}\right|^2\right)\right]^{\frac{1-n}{2n}} \tag{4$'$}
+	\end{gather*}
+	\subsection{5 $ \rightarrow $ 25}
+	Boundary condition for: $ y\rightarrow\infty $\\
+	Becomes the boundary condition for: $ Y\rightarrow\infty$\\
+	This equation can be broken into three parts:
+	\subsubsection{u}
+	\begin{gather*}
+		\eta\pd{u}{y}\rightarrow\tau_s \tag{5a} \\
+		\left[\eta\right]\mu\frac{\left[u\right]}{\left[z\right]}\pd{U}{Y}\rightarrow\tau_s\\
+		\mu\pd{U}{Y}\rightarrow\frac{\tau_s\left[z\right]}{\left[u\right]\left[\eta\right]} \tag{5a$ ' $}
+	\end{gather*}
+	\subsubsection{v}
+	\begin{gather*}
+		\pd{v}{z} \rightarrow 0 \tag{5b} \\
+		\pd{V}{Z} \rightarrow 0 \tag{25b}
+	\end{gather*}
+	\subsubsection{w}
+	\begin{gather*}
+		w \rightarrow 0 \tag{5c} \\
+		W \rightarrow 0 \tag{25c}
+	\end{gather*}
+	\subsection{6 $ \rightarrow $ 26}
+	Boundary condition for: $ y\rightarrow-\infty $\\
+	Becomes the boundary condition for: $ Y\rightarrow-\infty$\\
+	This equation can be broken into three parts:
+	\subsubsection{u}
+	\begin{gather*}
+		u \rightarrow 0 \tag{6a} \\
+		U \rightarrow 0 \tag{26a}
+	\end{gather*}
+	\subsubsection{v}
+	\begin{gather*}
+		v \rightarrow \frac{n+2}{n+1}\frac{q_r}{h_s}\left[1-\left(1-\frac{z}{h_s}\right)^{n+1}\right] \tag{6b} \\
+		v \rightarrow \frac{n+2}{n+1}\frac{q_r}{h_s}\left[1-\left(1-\frac{h_sZ}{h_s}\right)^{n+1}\right]\\
+		v \rightarrow \underset{\left[v\right]}{\underbrace{\frac{n+2}{n+1}\frac{q_r}{h_s}}}\left[1-\left(1-Z\right)^{n+1}\right]\\
+		V \rightarrow 1-\left(1-Z\right)^{n+1} \tag{26b}
+	\end{gather*}
+	\subsubsection{w}
+	\begin{gather*}
+		w \rightarrow 0 \tag{6c} \\
+		W \rightarrow 0 \tag{26c}
+	\end{gather*}
+	\subsection{7 $ \rightarrow $ 28}
+	Boundary condition for: $ z = 0 $\\
+	Becomes the boundary condition for: $ Z = 0 $
+	\begin{gather*}
+		w = 0 \text{ at } z = 0 \tag{7} \\
+		W = 0 \text{ at } Z = 0 \tag{28}
+	\end{gather*}
+	\subsection{8 $ \rightarrow $ 29}
+	Boundary condition for: $ y > 0,\ z = 0 $\\
+	Becomes the boundary condition for: $ Y > 0,\ Z = 0 $\\
+	This equation can be broken into two parts:
+	\subsubsection{u}
+	\begin{gather*}
+		\eta\pd{u}{z} = 0 \tag{8a} \\
+		\left[\eta\right]\mu\frac{\left[u\right]}{\left[z\right]}\pd{U}{Z} = 0\\
+		\mu\pd{U}{Z} = 0 \tag{29a}
+	\end{gather*}
+	\subsubsection{v}
+	\begin{gather*}
+		\eta\pd{v}{z} = 0 \tag{8b} \\
+		\left[\eta\right]\mu\frac{\left[v\right]}{\left[z\right]}\pd{V}{Z} = 0\\
+		\mu\pd{V}{Z} = 0 \tag{29b}
+	\end{gather*}
+	\subsection{9a $ \rightarrow $ 30a}
+	No slip boundary condition for: $ y < 0,\ z = 0 $\\
+	Becomes the no slip boundary condition for: $ Y < 0,\ Z = 0 $
+	\begin{gather*}
+		u = v = 0 \tag{9a} \\
+		U = V = 0 \tag{30a}
+	\end{gather*}
+	\subsection{9b $ \rightarrow $ 30b}
+	Subtemperate slip boundary condition for: $ y < 0,\ z = 0 $\\
+	Becomes the subtemperate slip boundary condition for: $ Y < 0,\ Z = 0 $
+	\subsubsection{$ title $}
+	\begin{gather*}
+		content...
 	\end{gather*}
 	
 \end{document}
