@@ -14,20 +14,31 @@
 \begin{document}
 	\maketitle
 	\section{Definitions}
+	A few of the scales jump out right away:
 	\begin{gather*}
 		\left[z\right] = h_s \qquad
-		\left[s'\right] = \frac{n+2}{n+1}\frac{q_r}{A\tau_s^nh_s^2}\frac{\tau_s}{\rho g} \qquad
-		\left[u\right] = Ah_s\tau_s^n\\
-		\left[v\right] = \frac{n+2}{n+1}\frac{q_r}{h_s} \qquad
-		\left[T\right] = T_m-T_s\\
+		\left[T\right] = T_m-T_s
+	\end{gather*}
+	These will be used in the following:
+	\begin{gather*}
 		y = \left[z\right]Y \qquad
-		z = \left[z\right]Z \qquad
+		z = \left[z\right]Z\\
+		T = \left[T\right]\mathcal{T} + T_s\\
+		\text{Note: Haseloff et al. reads: }T = \left[T\right]\mathcal{T} + T_m \text{ which is incorrect.}
+	\end{gather*}
+	The three velocity scales can also be defined:
+	\begin{gather*}
 		u = \left[u\right]U \qquad
 		v = \left[v\right]V \qquad
-		w = \left[v\right]W\\
+		w = \left[v\right]W
+	\end{gather*}
+	I will, however, make no assumptions in regards to the values of these scales.
+	\begin{gather*}
+		\left[s'\right] = \frac{n+2}{n+1}\frac{q_r}{A\tau_s^nh_s^2}\frac{\tau_s}{\rho g} \qquad
+		\left[u\right] = Ah_s\tau_s^n\\
+		\left[v\right] = \frac{n+2}{n+1}\frac{q_r}{h_s}\\
 		s' = \left[s'\right]S' \qquad
-		p = \rho g \left[s'\right]P \qquad
-		T = \left[T\right]\mathcal{T} + T_m\\
+		p = \rho g \left[s'\right]P\\
 		\alpha = \frac{A\tau_s^{n+1}h_s^2}{k\left(T_m-T_b\right)} \qquad
 		Pe = \frac{n+2}{n+1}\frac{\rho c_pq_r}{k} \qquad
 		\nu = \frac{T_b-T_s}{T_m-T_s}\\
@@ -39,12 +50,20 @@
 	\subsection{4 $ \rightarrow $ 24}
 	\begin{gather*}
 		\eta = \frac{A^{-1/n}}{2^{1/n}}\left[\left|\pd{u}{y}\right|^2 + \left|\pd{u}{z}\right|^2 + \left|\pd{v}{z} + \pd{w}{y}\right|^2 + 2\left|\pd{v}{y}\right|^2 + 2\left|\pd{w}{z}\right|^2\right]^{\frac{1-n}{2n}}\\
-		\frac{A^{-1/n}}{2^{1/n}}\left[\frac{\left[u\right]^2}{\left[z\right]^2}\left(\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2\right)\right]
+		\frac{A^{-1/n}}{2^{1/n}}\left[\frac{\left[u\right]^2}{\left[z\right]^2}\left(\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2\right) + \frac{\left[v\right]^2}{\left[z\right]^2}\left(\left|\pd{V}{Z} + \pd{W}{Y}\right|^2 + 2\left|\pd{V}{Y}\right|^2 + 2\left|\pd{W}{Z}\right|^2\right)\right]^{\frac{1-n}{2n}}\\
+		\frac{A^{-1/n}}{2^{1/n}}\left(\frac{\left[u\right]}{\left[z\right]}\right)^{\frac{1-n}{n}}\left[\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2 + \frac{\left[v\right]^2}{\left[u\right]^2}\left(\left|\pd{V}{Z} + \pd{W}{Y}\right|^2 + 2\left|\pd{V}{Y}\right|^2 + 2\left|\pd{W}{Z}\right|^2\right)\right]^{\frac{1-n}{2n}}\\
+		\text{Which for now can be written as: }\left[\eta\right]\mu
 	\end{gather*}
 	\subsection{2 $ \rightarrow $ 22}
 	\begin{gather*}
 		\pd{}{y}\left(\eta\pd{u}{y}\right) + \pd{}{z}\left(\eta\pd{u}{z}\right) = 0\\
-		\frac{1}{\left[z\right]}\pd{}{Y}
+		\frac{1}{\left[z\right]}\pd{}{Y}\left(\left[\eta\right]\mu\frac{\left[u\right]}{\left[z\right]}\pd{U}{Y}\right) + \frac{1}{\left[z\right]}\pd{}{Z}\left(\left[\eta\right]\mu\frac{\left[u\right]}{\left[z\right]}\pd{U}{Z}\right) = 0\\
+		\frac{\left[\eta\right]\left[u\right]}{\left[z\right]^2}\left[\pd{}{Y}\left(\mu\pd{U}{Y}\right) + \pd{}{Z}\left(\mu\pd{U}{Z}\right)\right] = 0\\
+		\pd{}{Y}\left(\mu\pd{U}{Y}\right) + \pd{}{Z}\left(\mu\pd{U}{Z}\right) = 0
+	\end{gather*}
+	\subsection{3a $ \rightarrow $ 23a}
+	\begin{gather*}
+		\pd{}{y}\left(\right)
 	\end{gather*}
 	
 \end{document}
