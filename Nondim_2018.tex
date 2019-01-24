@@ -1,0 +1,50 @@
+\documentclass[10pt, letterpaper, twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage{garamond}
+\usepackage{mathtools}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+
+\title{Nondimensionalization of Haseloff et al. 2018}
+\author{Pierce Hunter}
+\date{1/24/2019}
+
+\begin{document}
+	\maketitle
+	\section{Definitions}
+	\begin{gather*}
+		\left[z\right] = h_s \qquad
+		\left[s'\right] = \frac{n+2}{n+1}\frac{q_r}{A\tau_s^nh_s^2}\frac{\tau_s}{\rho g} \qquad
+		\left[u\right] = Ah_s\tau_s^n\\
+		\left[v\right] = \frac{n+2}{n+1}\frac{q_r}{h_s} \qquad
+		\left[T\right] = T_m-T_s\\
+		y = \left[z\right]Y \qquad
+		z = \left[z\right]Z \qquad
+		u = \left[u\right]U \qquad
+		v = \left[v\right]V \qquad
+		w = \left[v\right]W\\
+		s' = \left[s'\right]S' \qquad
+		p = \rho g \left[s'\right]P \qquad
+		T = \left[T\right]\mathcal{T} + T_m\\
+		\alpha = \frac{A\tau_s^{n+1}h_s^2}{k\left(T_m-T_b\right)} \qquad
+		Pe = \frac{n+2}{n+1}\frac{\rho c_pq_r}{k} \qquad
+		\nu = \frac{T_b-T_s}{T_m-T_s}\\
+		\tau = \frac{\tau_c}{\tau_s} \qquad
+		\varepsilon = \frac{n+2}{n+1}\frac{q_r}{A\tau_s^nh_s^2}
+	\end{gather*}
+	
+	\section{Nondimensionalization of Equations}
+	\subsection{4 $ \rightarrow $ 24}
+	\begin{gather*}
+		\eta = \frac{A^{-1/n}}{2^{1/n}}\left[\left|\pd{u}{y}\right|^2 + \left|\pd{u}{z}\right|^2 + \left|\pd{v}{z} + \pd{w}{y}\right|^2 + 2\left|\pd{v}{y}\right|^2 + 2\left|\pd{w}{z}\right|^2\right]^{\frac{1-n}{2n}}\\
+		\frac{A^{-1/n}}{2^{1/n}}\left[\frac{\left[u\right]^2}{\left[z\right]^2}\left(\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2\right)\right]
+	\end{gather*}
+	\subsection{2 $ \rightarrow $ 22}
+	\begin{gather*}
+		\pd{}{y}\left(\eta\pd{u}{y}\right) + \pd{}{z}\left(\eta\pd{u}{z}\right) = 0\\
+		\frac{1}{\left[z\right]}\pd{}{Y}
+	\end{gather*}
+	
+\end{document}
