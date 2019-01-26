@@ -13,51 +13,19 @@
 
 \begin{document}
 	\maketitle
-	\section{Definitions}
-	A few of the scales jump out right away:
-	\begin{gather*}
-		\left[z\right] = h_s \qquad
-		\left[T\right] = T_m-T_s
-	\end{gather*}
-	These will be used in the following:
-	\begin{gather*}
-		y = \left[z\right]Y \qquad
-		z = \left[z\right]Z\\
-		T = \left[T\right]\mathcal{T} + T_s\\
-		\text{Note: Haseloff et al. reads: }T = \left[T\right]\mathcal{T} + T_m \text{ which is incorrect.}
-	\end{gather*}
-	The three velocity scales can also be defined:
-	\begin{gather*}
-		u = \left[u\right]U \qquad
-		v = \left[v\right]V \qquad
-		w = \left[v\right]W
-	\end{gather*}
-	I will, however, make no assumptions in regards to the values of these scales.
-	\begin{gather*}
-		\left[s'\right] = \frac{n+2}{n+1}\frac{q_r}{A\tau_s^nh_s^2}\frac{\tau_s}{\rho g} \qquad
-		\left[u\right] = Ah_s\tau_s^n\\
-		\left[v\right] = \frac{n+2}{n+1}\frac{q_r}{h_s}\\
-		s' = \left[s'\right]S' \qquad
-		p = \rho g \left[s'\right]P\\
-		\alpha = \frac{A\tau_s^{n+1}h_s^2}{k\left(T_m-T_b\right)} \qquad
-		Pe = \frac{n+2}{n+1}\frac{\rho c_pq_r}{k} \qquad
-		\nu = \frac{T_b-T_s}{T_m-T_s}\\
-		\tau = \frac{\tau_c}{\tau_s} \qquad
-		\varepsilon = \frac{n+2}{n+1}\frac{q_r}{A\tau_s^nh_s^2}
-	\end{gather*}
 	
 	\section{Nondimensionalization of Velocity Equations}
 	Nondimensionalizing the equations in terms of dimensional scales (this section will not yet try write the scales in terms of parameters)\\
 	Here I use:
 	\begin{gather*}
-		\left[z\right] = h_s \qquad
 		y = \left[z\right]Y \qquad
 		z = \left[z\right]Z\\
 		u = \left[u\right]U \qquad
 		v = \left[v\right]V \qquad
 		w = \left[v\right]W\\
 		\eta = \left[\eta\right]\mu \qquad
-		p = \left[p\right]P
+		p = \left[p\right]P \qquad
+		s' = \left[s'\right]S'
 	\end{gather*}
 	The convention I used here is to provide the equation number when it matches the same equation in Haseloff's paper. If the equation doesn't match an equation in Haseloff, but I plan to resolve the differences later in the notes I will denote that with primes.
 	\subsection{2 $ \rightarrow $ 22}
@@ -123,9 +91,7 @@
 	\subsubsection{v}
 	\begin{gather*}
 		v \rightarrow \frac{n+2}{n+1}\frac{q_r}{h_s}\left[1-\left(1-\frac{z}{h_s}\right)^{n+1}\right] \tag{6b} \\
-		v \rightarrow \frac{n+2}{n+1}\frac{q_r}{h_s}\left[1-\left(1-\frac{h_sZ}{h_s}\right)^{n+1}\right]\\
-		v \rightarrow \underset{\left[v\right]}{\underbrace{\frac{n+2}{n+1}\frac{q_r}{h_s}}}\left[1-\left(1-Z\right)^{n+1}\right]\\
-		V \rightarrow 1-\left(1-Z\right)^{n+1} \tag{26b}
+		v \rightarrow \frac{n+2}{n+1}\frac{q_r}{h_s}\left[1-\left(1-\frac{\left[z\right]Z}{h_s}\right)^{n+1}\right] \tag{6b'}
 	\end{gather*}
 	\subsubsection{w}
 	\begin{gather*}
@@ -165,9 +131,61 @@
 	\subsection{9b $ \rightarrow $ 30b}
 	Subtemperate slip boundary condition for: $ y < 0,\ z = 0 $\\
 	Becomes the subtemperate slip boundary condition for: $ Y < 0,\ Z = 0 $
-	\subsubsection{$ title $}
+	This equation can be broken into three parts:
+	\subsubsection{$ \sqrt{u^2+v^2}>0 $, u}
 	\begin{gather*}
-		content...
+		\eta\pd{u}{z} = \tau_c\frac{u}{\sqrt{u^2+v^2}} \tag{9b,I} \\
+		\left[\eta\right]\mu\frac{\left[u\right]}{\left[z\right]}\pd{U}{Z} = \tau_c\frac{U}{\sqrt{U^2+\frac{\left[v\right]^2}{\left[u\right]^2}V^2}}\\
+		\mu\pd{U}{Z} = \frac{\left[z\right]\tau_c}{\left[u\right]\left[\eta\right]}\frac{U}{\sqrt{U^2+\frac{\left[v\right]^2}{\left[u\right]^2}V^2}} \tag{9b',I}
 	\end{gather*}
+	\subsubsection{$ \sqrt{u^2+v^2}>0 $, v}
+	\begin{gather*}
+		\eta\pd{v}{z} = \tau_c\frac{v}{\sqrt{u^2+v^2}} \tag{9b,II} \\
+		\left[\eta\right]\mu\frac{\left[v\right]}{\left[z\right]}\pd{V}{Z} = \tau_c\frac{\left[v\right]}{\left[u\right]}\frac{V}{\sqrt{U^2+\frac{\left[v\right]^2}{\left[u\right]^2}V^2}}\\
+		\mu\pd{V}{Z} = \frac{\left[z\right]\tau_c}{\left[u\right]\left[\eta\right]}\frac{V}{\sqrt{U^2+\frac{\left[v\right]^2}{\left[u\right]^2}V^2}} \tag{9b',II}
+	\end{gather*}
+	\subsubsection{$ \sqrt{u^2+v^2}=0 $}
+	\begin{gather*}
+		\sqrt{\left(\eta\pd{u}{z}\right)^2 + \left(\eta\pd{v}{z}\right)^2}\leq\tau_c \tag{9b,III} \\
+		\frac{\left[\eta\right]\left[u\right]}{\left[z\right]}\sqrt{\left(\mu\pd{U}{Z}\right)^2+\left(\mu\frac{\left[v\right]}{\left[u\right]}\pd{V}{Z}\right)^2}\leq\tau_c\\
+		\sqrt{\left(\mu\pd{U}{Z}\right)^2+\frac{\left[v\right]^2}{\left[u\right]^2}\left(\mu\pd{V}{Z}\right)^2}\leq\frac{\left[z\right]\tau_c}{\left[u\right]\left[\eta\right]} \tag{9b',III}
+	\end{gather*}
+	\subsection{10 $ \rightarrow $ 27}
+	Boundary condition for: $ z = h_s $\\
+	Becomes the boundary condition for: $ Z = 1 $\\
+	This equation can be broken into four parts:
+	\subsubsection{u}
+	\begin{gather*}
+		\eta\pd{u}{z} = 0 \tag{10a} \\
+		\mu\pd{U}{Z} = 0 \tag{27a}
+	\end{gather*}
+	\subsubsection{v}
+	\begin{gather*}
+		\eta\pd{v}{z} = 0 \tag{10b} \\
+		\mu\pd{V}{Z} = 0 \tag{27b}
+	\end{gather*}
+	\subsubsection{w}
+	\begin{gather*}
+		w = 0 \tag{10c} \\
+		W = 0 \tag{27c}
+	\end{gather*}
+	\subsubsection{p}
+	\begin{gather*}
+		2\eta\pd{w}{z} - p + \rho g s' = 0 \tag{10d} \\
+		2\left[\eta\right]\mu\frac{\left[v\right]}{\left[z\right]}\pd{W}{Z} - \left[p\right]P + \rho g\left[s'\right]S' = 0\\
+		2\mu\pd{W}{Z} - \frac{\left[z\right]\left[p\right]}{\left[\eta\right]\left[v\right]}P + \frac{\rho g \left[s'\right]\left[z\right]}{\left[\eta\right]\left[v\right]}S' = 0 \tag{10d'}
+	\end{gather*}
+	
+	\section{Finding Scales and Resolving the Primes}
+	\subsection{5a'}
+	This equation gives the first two scales:
+	\begin{gather*}
+		\left[z\right] = h_s\\
+		\tau_s = \frac{\left[u\right]\left[\eta\right]}{\left[z\right]} = \frac{\left[u\right]\left[\eta\right]}{h_s}
+	\end{gather*}
+	Which gives the final form:
+	\begin{equation*}
+		\mu\pd{U}{Y}\rightarrow 1 \tag{25a}
+	\end{equation*}
 	
 \end{document}
