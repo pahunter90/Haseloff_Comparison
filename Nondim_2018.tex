@@ -177,15 +177,130 @@
 	\end{gather*}
 	
 	\section{Finding Scales and Resolving the Primes}
+	There is not yet enough information to resolve equations 3 and 4, so here I skip to 5.
 	\subsection{5a'}
-	This equation gives the first two scales:
+	This equation gives the first scale:
 	\begin{gather*}
-		\left[z\right] = h_s\\
-		\tau_s = \frac{\left[u\right]\left[\eta\right]}{\left[z\right]} = \frac{\left[u\right]\left[\eta\right]}{h_s}
+		\tau_s = \frac{\left[u\right]\left[\eta\right]}{\left[z\right]} \tag{S1}
 	\end{gather*}
 	Which gives the final form:
 	\begin{equation*}
 		\mu\pd{U}{Y}\rightarrow 1 \tag{25a}
 	\end{equation*}
+	\subsection{6b'}
+	This equation provides the following scales:
+	\begin{gather*}
+		\left[z\right] = h_s \tag{S2} \\
+		\left[v\right] = \frac{n+2}{n+1}\frac{q_r}{h_s} \tag{S3}
+	\end{gather*}
+	Which gives:
+	\begin{gather*}
+		v \rightarrow \frac{n+2}{n+1}\frac{q_r}{h_s}\left[1-\left(1-\frac{\left[z\right]Z}{h_s}\right)^{n+1}\right]\\
+		\left[v\right]V \rightarrow \left[v\right]\left[1-\left(1-\frac{h_s}{h_s}Z\right)^{n+1}\right]\\
+		V \rightarrow \left[1-\left(1-Z\right)^{n+1}\right] \tag{26b}
+	\end{gather*}
+	\subsection{9b',I}
+	This equation requires the relations:
+	\begin{gather*}
+		\tau = \frac{\tau_c}{\tau_s} \tag{N1} \\
+		\varepsilon = \frac{\left[v\right]}{\left[u\right]} = \frac{n+2}{n+1}\frac{q_r}{h_s}\frac{1}{\left[u\right]} \tag{N2}
+	\end{gather*}
+	And the boundary condition criterion becomes:
+	\begin{gather*}
+		\sqrt{u^2+v^2}>0\\
+		\left[u\right]\sqrt{U^2+\frac{\left[v\right]}{\left[u\right]}V^2}>0\\
+		\sqrt{U^2+\varepsilon^2V^2}>0
+	\end{gather*}
+	Which gives the final form:
+	\begin{equation*}
+		\mu\pd{U}{Z} = \tau\frac{U}{\sqrt{U^2+\varepsilon^2V^2}} \tag{30b,I}
+	\end{equation*}
+	\subsection{9b',II}
+	Similarly:
+	\begin{equation*}
+		\mu\pd{V}{Z} = \tau\frac{V}{\sqrt{U^2+\varepsilon^2V^2}} \tag{30b,II}
+	\end{equation*}
+	\subsection{9b',III}
+	The criterion here is:
+	\begin{equation*}
+		\sqrt{U^2+\varepsilon^2V^2}=0
+	\end{equation*}
+	And the equation becomes:
+	\begin{equation*}
+		\sqrt{\left(\mu\pd{U}{Z}\right)^2+\varepsilon^2\left(\mu\pd{V}{Z}\right)^2}\leq\tau \tag{30b,III}
+	\end{equation*}
+	\subsection{10d'}
+	Here the following relations can be used:
+	\begin{gather*}
+		\left[p\right] = \rho g \left[s'\right] \tag{S4} \\
+		\left[s'\right] = \frac{\left[\eta\right]\left[v\right]}{\rho g \left[z\right]} = \frac{n+2}{n+1}\frac{q_r}{h_s}\frac{\left[\eta\right]}{\rho g h_s} = \frac{n+2}{n+1}\frac{q_r}{\rho gh_s^2}\left[\eta\right] \tag{S5}
+	\end{gather*}
+	This gives the relation:
+	\begin{equation*}
+		\frac{\left[z\right]\left[p\right]}{\left[\eta\right]\left[v\right]} = \frac{\rho g \left[s'\right]\left[z\right]}{\left[\eta\right]\left[v\right]} = 1
+	\end{equation*}
+	And gives the final form:
+	\begin{equation*}
+		2\mu\pd{W}{Z} - P + S' = 0 \tag{27d}
+	\end{equation*}
+	We now have enough information to go back to equation 4.
+	\subsection{4'}
+	Here the following will be utilized:
+	\begin{gather*}
+		\left[\eta\right] = A^{-1/n}\left(\frac{\left[u\right]}{\left[z\right]}\right)^{\frac{1-n}{n}} \tag{S6}
+	\end{gather*}
+	So the equation for $ \eta $ becomes:
+	\begin{gather*}
+		\eta = \frac{A^{-1/n}}{2^{1/n}}\left(\frac{\left[u\right]}{\left[z\right]}\right)^{\frac{1-n}{n}}\left[\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2 + \frac{\left[v\right]^2}{\left[u\right]^2}\left(\left|\pd{V}{Z} + \pd{W}{Y}\right|^2 + 2\left|\pd{V}{Y}\right|^2 + 2\left|\pd{W}{Z}\right|^2\right)\right]^{\frac{1-n}{2n}}\\
+		\left[\eta\right]\mu = \frac{\left[\eta\right]}{2^{1/n}}\left[\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2 + \varepsilon^2\left(\left|\pd{V}{Z} + \pd{W}{Y}\right|^2 + 2\left|\pd{V}{Y}\right|^2 + 2\left|\pd{W}{Z}\right|^2\right)\right]^{\frac{1-n}{2n}}\\
+		\mu = \frac{1}{2^{1/n}}\left[\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2 + \varepsilon^2\left(\left|\pd{V}{Z} + \pd{W}{Y}\right|^2 + 2\left|\pd{V}{Y}\right|^2 + 2\left|\pd{W}{Z}\right|^2\right)\right]^{\frac{1-n}{2n}} \tag{24}
+	\end{gather*}
+	\subsection{3a'}
+	The following relation will be useful here:
+	\begin{equation*}
+		\left[p\right] = \rho g \left[s'\right] = \frac{\rho g \left[\eta\right]\left[v\right]}{\rho g \left[z\right]} = \frac{\left[\eta\right]\left[v\right]}{\left[z\right]} \tag{S7}
+	\end{equation*}
+	\begin{gather*}
+		\frac{\left[\eta\right]\left[v\right]}{\left[z\right]^2}\pd{}{Y}\left(2\mu\pd{V}{Y}\right) + \frac{\left[\eta\right]\left[v\right]}{\left[z\right]^2}\pd{}{Z}\left[\mu\left(\pd{V}{Z}+\pd{W}{Y}\right)\right] - \frac{\left[p\right]}{\left[z\right]}\pd{P}{Y} = 0\\
+		\frac{\left[\eta\right]\left[v\right]}{\left[z\right]^2}\pd{}{Y}\left(2\mu\pd{V}{Y}\right) + \frac{\left[\eta\right]\left[v\right]}{\left[z\right]^2}\pd{}{Z}\left[\mu\left(\pd{V}{Z}+\pd{W}{Y}\right)\right] - \frac{\left[\eta\right]\left[v\right]}{\left[z\right]^2}\pd{P}{Y} = 0\\
+		\pd{}{Y}\left(2\mu\pd{V}{Y}\right) + \pd{}{Z}\left[\mu\left(\pd{V}{Z}+\pd{W}{Y}\right)\right] - \pd{P}{Y} = 0 \tag{23a}
+	\end{gather*}
+	\subsection{3b'}
+	\begin{gather*}
+		\frac{\left[\eta\right]\left[v\right]}{\left[z\right]^2}\pd{}{Y}\left[\mu\left(\pd{V}{Z}+\pd{W}{Y}\right)\right] + \frac{\left[\eta\right]\left[v\right]}{\left[z\right]^2}\pd{}{Z}\left(2\mu\pd{W}{Z}\right) - \frac{\left[p\right]}{\left[z\right]}\pd{P}{Z} = 0\\
+		\pd{}{Y}\left[\mu\left(\pd{V}{Z}+\pd{W}{Y}\right)\right] + \pd{}{Z}\left(2\mu\pd{W}{Z}\right) - \pd{P}{Z} = 0 \tag{23b}
+	\end{gather*}
+	
+	\section{Scales in terms of Parameters}
+	Now that all of the primed equations have been resolved, the scales need to be written in terms of parameters.\\
+	The scales are:
+	\begin{equation*}
+		\left[z\right],\left[u\right],\left[v\right],\left[\eta\right],\left[p\right],\left[s'\right]
+	\end{equation*}
+	From S2 have:
+	\begin{equation*}
+		\left[z\right] = h_s
+	\end{equation*}
+	And from S3 have:
+	\begin{equation*}
+		\left[v\right] = \frac{n+2}{n+1}\frac{q_r}{h_s}
+	\end{equation*}
+	S1 and S6 can be combined to find scales for $ u $ and $ \eta $ simultaneously:
+	\begin{gather*}
+		\tau_s = \frac{\left[u\right]\left[\eta\right]}{\left[z\right]}\\
+		\tau_s = A^{-1/n}\left(\frac{\left[u\right]}{\left[z\right]}\right)^{\frac{1-n}{n}}\frac{\left[u\right]}{\left[z\right]}\\
+		\tau_s = A^{-1/n}\left(\frac{\left[u\right]}{h_s}\right)^{\frac{1}{n}}\\
+		\tau_s^n = \frac{1}{A}\frac{\left[u\right]}{h_s}\\
+		\left[u\right] = A\tau_s^nh_s\\
+		\implies \left[\eta\right] = \frac{\tau_sh_s}{A\tau_s^nh_s} = \frac{1}{A\tau_s^{n-1}}
+	\end{gather*}
+	Now can use $ \left[\eta\right] $ to get an expression for $ \left[s'\right] $:
+	\begin{gather*}
+		\left[s'\right] = \frac{n+2}{n+1}\frac{q_r}{\rho gh_s^2}\left[\eta\right] = \frac{n+2}{n+1}\frac{q_r}{\rho gh_s^2}\frac{1}{A\tau_s^{n-1}}
+	\end{gather*}
+	Which in turn gives an expression for $ \left[p\right] $:
+	\begin{gather*}
+		\left[p\right] = \rho g \left[s'\right] = \frac{n+2}{n+1}\frac{q_r}{h_s^2}\frac{1}{A\tau_s^{n-1}}
+	\end{gather*}
 	
 \end{document}
