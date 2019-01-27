@@ -303,4 +303,93 @@
 		\left[p\right] = \rho g \left[s'\right] = \frac{n+2}{n+1}\frac{q_r}{h_s^2}\frac{1}{A\tau_s^{n-1}}
 	\end{gather*}
 	
+	\newpage
+	
+	\section{Nondimensionalization of Temperature Equations}
+	For temperature the following are required:
+	\begin{gather*}
+		y = \left[z\right]Y \qquad z = \left[z\right]Z \\
+		v_m = \left[v_m\right]V_m \qquad u = \left[u\right]U \qquad v = \left[v\right]V \qquad w = \left[v\right]W\\
+		a = \left[a\right]\mathcal{A} \qquad T = \left[T\right]\mathcal{T}+T_s
+	\end{gather*}
+	\subsection{12a $ \rightarrow $ 31a}
+	Valid for: $ 0<z<h_s $\\
+	Becomes valid for: $ 0<Z<1 $
+	\begin{gather*}
+		\rho c_p\left(v_m\pd{T}{y}+v\pd{T}{y}+w\pd{T}{z}\right) - k\left(\pd{^2T}{y^2}+\pd{^2T}{z^2}\right) = a \tag{12a} \\
+		\rho c_p\left(\left[v_m\right]V_m\frac{\left[T\right]}{\left[z\right]}\pd{\mathcal{T}}{Y}+\frac{\left[v\right]\left[T\right]}{\left[z\right]}V\pd{\mathcal{T}}{Y}+\frac{\left[v\right]\left[T\right]}{\left[z\right]}W\pd{\mathcal{T}}{Z}\right) - k\left(\frac{\left[T\right]}{\left[z\right]^2}\pd{^2\mathcal{T}}{Y^2}+\frac{\left[T\right]}{\left[z\right]^2}\pd{^2\mathcal{T}}{Z^2}\right) = \left[a\right]\mathcal{A}\\
+		\frac{\rho c_p\left[v_m\right]\left[T\right]}{\left[z\right]}V_m\pd{\mathcal{T}}{Y} + \frac{\rho c_p\left[v\right]\left[T\right]}{\left[z\right]}\left(V\pd{\mathcal{T}}{Y}+W\pd{\mathcal{T}}{Z}\right) - \frac{k\left[T\right]}{\left[z\right]^2}\left(\pd{^2\mathcal{T}}{Y^2}+\pd{^2\mathcal{T}}{Z^2}\right) = \left[a\right]\mathcal{A}\\
+		\frac{\rho c_p\left[z\right]\left[v_m\right]}{k}V_m\pd{\mathcal{T}}{Y} + \frac{\rho c_p\left[z\right]\left[v\right]}{k}\left(V\pd{\mathcal{T}}{Y}+W\pd{\mathcal{T}}{Z}\right) - \left(\pd{^2\mathcal{T}}{Y^2}+\pd{^2\mathcal{T}}{Z^2}\right) = \frac{\left[a\right]\left[z\right]^2}{k\left[T\right]}\mathcal{A} \tag{12a'}
+	\end{gather*}
+	\subsection{12b $ \rightarrow $ 31b}
+	Valid for: $ z<0 $\\
+	Becomes valid for: $ Z<0 $
+	\begin{gather*}
+		\rho_{\text{bed}}c_{p,\text{bed}}v_m\pd{T}{y} - k_{\text{bed}}\left(\pd{^2T}{y^2}+\pd{^2T}{z^2}\right) = 0 \tag{12b} \\
+		\frac{\rho_{\text{bed}}c_{p,\text{bed}}\left[v_m\right]\left[T\right]}{\left[z\right]}V_m\pd{\mathcal{T}}{Y} - \frac{k_{\text{bed}}\left[T\right]}{\left[z\right]^2}\left(\pd{^2\mathcal{T}}{Y^2}+\pd{^2\mathcal{T}}{Z^2}\right) = 0\\
+		\frac{\rho_{\text{bed}}c_{p,\text{bed}}\left[z\right]\left[v_m\right]}{k_{\text{bed}}}V_m\pd{\mathcal{T}}{Y} - \left(\pd{^2\mathcal{T}}{Y^2}+\pd{^2\mathcal{T}}{Z^2}\right) = 0 \tag{12b'}
+	\end{gather*}
+	\subsection{13 $ \rightarrow $ 32}
+	\begin{gather*}
+		a = \frac{A^{-1/n}}{2^{1/n}}\left(\left|\pd{u}{y}\right|^2 + \left|\pd{u}{z}\right|^2 + \left|\pd{v}{z} + \pd{w}{y}\right|^2 + 2\left|\pd{v}{y}\right|^2 + 2\left|\pd{w}{z}\right|^2\right)^{\frac{1+n}{2n}} \tag{13} \\
+		\left[a\right]\mathcal{A} = \frac{A^{-1/n}}{2^{1/n}}\left[\frac{\left[u\right]^2}{\left[z\right]^2}\left(\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2\right) + \frac{\left[v\right]^2}{\left[z\right]^2}\left(\left|\pd{V}{Z} + \pd{W}{Y}\right|^2 + 2\left|\pd{V}{Y}\right|^2 + 2\left|\pd{W}{Z}\right|^2\right)\right]^{\frac{1+n}{2n}}\\
+		\left[a\right]\mathcal{A} = \frac{A^{-1/n}}{2^{1/n}}\left(\frac{\left[u\right]}{\left[z\right]}\right)^{\frac{1+n}{n}}\left[\left|\pd{U}{Y}\right|^2 + \left|\pd{U}{Z}\right|^2 + \frac{\left[v\right]^2}{\left[u\right]^2}\left(\left|\pd{V}{Z} + \pd{W}{Y}\right|^2 + 2\left|\pd{V}{Y}\right|^2 + 2\left|\pd{W}{Z}\right|^2\right)\right]^{\frac{1+n}{2n}} \tag{13'}
+	\end{gather*}
+	
+	\newpage
+	
+	\subsection{14 $ \rightarrow $ 34c-d}
+	This equation can be broken into three parts:
+	\subsubsection{$ y\rightarrow-\infty,\ z\geq0 $}
+	\begin{gather*}
+		T = T_s + \frac{q_{\text{geo}}}{k}\left(h_s-z\right) \tag{14a} \\
+		\left[T\right]\mathcal{T} + T_s = T_s + \frac{q_{\text{geo}}}{k}\left(h_s-\left[z\right]Z\right)\\
+		\left[T\right]\mathcal{T} = \frac{q_{\text{geo}}}{k}\left(h_s-h_sZ\right)\\
+		\mathcal{T} = \frac{q_{\text{geo}}h_s}{k\left[T\right]}\left(1-Z\right) \tag{14a'}
+	\end{gather*}
+	\subsubsection{$ y\rightarrow-\infty,\ z<0 $}
+	\begin{gather*}
+		T = T_s + \frac{q_{\text{geo}}}{k}\left(h_s-\frac{k}{k_{\text{bed}}}z\right) \tag{14b} \\
+		\left[T\right]\mathcal{T} + T_s = T_s + \frac{q_{\text{geo}}}{k}\left(h_s-\left[z\right]\frac{k}{k_{\text{bed}}}Z\right)\\
+		\left[T\right]\mathcal{T} = \frac{q_{\text{geo}}}{k}\left(h_s-h_s\frac{k}{k_{\text{bed}}}Z\right)\\
+		\mathcal{T} = \frac{q_{\text{geo}}h_s}{k\left[T\right]}\left(1-\frac{k}{k_{\text{bed}}}Z\right) \tag{14b'}
+	\end{gather*}
+	\subsubsection{$ y\rightarrow\infty $}
+	\begin{gather*}
+		\pd{T}{y}\rightarrow 0 \tag{14c} \\
+		\pd{\mathcal{T}}{Y} \rightarrow 0 \tag{14c'}
+	\end{gather*}
+	\subsection{16 $ \rightarrow $ 34a-b}
+	This equation can be broken into two parts:
+	\subsubsection{$ z=h_s $}
+	\begin{gather*}
+		T = T_s \tag{16a} \\
+		\left[T\right]\mathcal{T} + T_s = T_s\\
+		\left[T\right]\mathcal{T} = 0\\
+		\mathcal{T} = 0 \tag{16a'}
+	\end{gather*}
+	\subsubsection{$ z\rightarrow-\infty $}
+	\begin{gather*}
+		-k_{\text{bed}}\pd{T}{z}\rightarrow q_{\text{geo}} \tag{16b} \\
+		\frac{\left[T\right]}{\left[z\right]}\pd{\mathcal{T}}{Z}\rightarrow-\frac{q_{\text{geo}}}{k_{\text{bed}}}\\
+		\pd{\mathcal{T}}{Z}\rightarrow -\frac{q_{\text{geo}}h_s}{k_{\text{bed}}\left[T\right]} \tag{16b'}
+	\end{gather*}
+	\subsection{17a $ \rightarrow $ 35a}
+	The boundary condition: $ y<0,\ z=0 $\\
+	Becomes the boundary condition: $ Y<0,\ Z=0 $\\
+	The constraint: $ T<T_m $\\
+	Becomes the constraint: $ \mathcal{T}<1 $
+	The equation can be broken into two parts:
+	\subsubsection{$ \tau_c = \infty $}
+	\begin{gather*}
+		-k\left.\pd{T}{z}\right|^+ + k_{\text{bed}}\left.\pd{T}{z}\right|^- = 0 \tag{17a,I} \\
+		-k\frac{\left[T\right]}{\left[z\right]}\left.\pd{\mathcal{T}}{Z}\right|^+ + k_{\text{bed}}\frac{\left[T\right]}{\left[z\right]}\left.\pd{\mathcal{T}}{Z}\right|^- = 0\\
+		-\left.\pd{\mathcal{T}}{Z}\right|^+ + \frac{k_{\text{bed}}}{k}\left.\pd{\mathcal{T}}{Z}\right|^- = 0 \tag{17a',I}
+	\end{gather*}
+	\subsubsection{$ \tau_c < \infty $}
+	\begin{gather*}
+		temp
+	\end{gather*}
+	\subsection{17b $ \rightarrow $ 35b}
+	
 \end{document}
