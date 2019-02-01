@@ -1,0 +1,93 @@
+\documentclass[letterpaper,landscape, 10pt]{article}
+\usepackage{mathtools}
+\usepackage{geometry}
+
+\geometry{margin=.75in}
+\fontsize{10pt}{14pt}
+\renewcommand\arraystretch{2.1}
+
+\renewcommand{\vec}[1]{\underline{#1}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\transpose}[1]{#1^\text{T}}
+
+\title{Trying to Understand the B.C.'s in Comsol}
+\author{Pierce Hunter}
+\date{2/1/2019}
+
+\begin{document}
+	\maketitle
+	\section{Deriving $ 2\mu D $}
+	\begin{gather*}
+		D = \frac{1}{2}\left[\nabla\vec{v} + \transpose{\left(\nabla\vec{v}\right)}\right]\\
+		\vec{v} = \left(V,W\right)\\
+		\nabla\vec{v} = \begin{bmatrix}
+		\displaystyle\pd{V}{x} & \displaystyle\pd{V}{y}\\
+		\displaystyle\pd{W}{x} &\displaystyle \pd{W}{y}
+		\end{bmatrix}\\
+		\transpose{\left(\nabla\vec{v}\right)} = \begin{bmatrix}
+		\displaystyle\pd{V}{x} &\displaystyle \pd{W}{x}\\
+		\displaystyle\pd{V}{y} &\displaystyle \pd{W}{y}
+		\end{bmatrix}\\
+		\mu\left(\nabla\vec{v} + \transpose{\left(\nabla\vec{v}\right)}\right) = \begin{bmatrix}
+		\displaystyle2\mu\pd{V}{x} & \displaystyle\mu\left(\pd{V}{y} + \pd{W}{x}\right)\\
+		\displaystyle\mu\left(\pd{V}{y} + \pd{W}{x}\right) & \displaystyle2\mu\pd{W}{y}
+		\end{bmatrix} = 2\mu D
+	\end{gather*}
+	\section{A Table of Normals and Boundary Conditions}
+	\begin{center}
+		\begin{tabular}{|c||c|c|c|c|}
+			\cline{2-5}
+			\multicolumn{1}{c||}{}& $ \vec{n} $ & $ U $ & $ V $ & $ W $\\
+			\hline\hline
+			Left & $ \left(-1,0\right)$ & $ U=0 $ & $ V=1-\left(1-Z\right)^4$ & $ W=0$ \\
+			\hline
+			Right & $ \left(1,0\right)$ & $ \displaystyle \mu\pd{U}{Y}=1$ & $ \displaystyle \pd{V}{Z} = 0$ & $ W=0$ \\
+			\hline
+			Top & $ \left(0,1\right)$ & $\displaystyle \mu\pd{U}{Z} = 0$ & $\displaystyle \mu\pd{V}{Z} = 0$ & \begin{tabular}{c}
+				$ W = 0$\\
+				$\displaystyle 2\mu\pd{W}{Z}-P+S' = 0$
+			\end{tabular} \\
+			\hline
+			Ridge (No Slip) & $ \left(0,-1\right)$ & $ U=0$ & $ V=0$ & $ W=0$ \\
+			\hline
+			Ridge (Slip) & $ \left(0,-1\right)$ & $\displaystyle \begin{cases}
+			\mu\pd{U}{Z} = \tau\frac{U}{\sqrt{U^2+\varepsilon^2V^2}}&\sqrt{U^2+\varepsilon^2V^2}>0\\
+			\sqrt{\left(\mu\pd{U}{Z}\right)^2+\varepsilon^2\left(\mu\pd{V}{Z}\right)^2}\leq\tau & \sqrt{U^2+\varepsilon^2V^2}=0
+			\end{cases} $ & $\displaystyle \begin{cases}
+			\mu\pd{V}{Z} = \tau\frac{V}{\sqrt{U^2+\varepsilon^2V^2}}&\sqrt{U^2+\varepsilon^2V^2}>0\\
+			\sqrt{\left(\mu\pd{U}{Z}\right)^2+\varepsilon^2\left(\mu\pd{V}{Z}\right)^2}\leq\tau & \sqrt{U^2+\varepsilon^2V^2}=0
+			\end{cases} $ & $ W=0 $ \\
+			\hline
+			Stream & $ \left(0,-1\right)$ & $ \displaystyle \mu\pd{U}{Z} = 0 $ & $\displaystyle \mu\pd{V}{Z}=0 $ & $ W=0 $ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	For conversion to comsol need $ Y \rightarrow x,\ Z \rightarrow y $
+	\newpage
+	\section{Downstream Velocity Boundary Conditions in Comsol}
+	\subsection{Left Boundary}
+	Dirichlet Boundary Condition:
+	\begin{gather*}
+		U = r\\
+		r = 0 \implies U = 0
+	\end{gather*}
+	\subsection{Right Boundary}
+	Flux/Source Boundary Condition:
+	\begin{gather*}
+		-\vec{n}\cdot\vec{\Gamma} = g-qu\\
+		\vec{n} = \left(1,0\right)\\
+		\vec{\Gamma} = \left(\mu\pd{U}{x},\mu\pd{U}{y}\right)\\
+		-\vec{n}\cdot\vec{\Gamma} = -\mu\pd{U}{x}\\
+		\text{Set: }g = -1,\ q = 0 \implies -\mu\pd{U}{x} = -1\\
+		\mu\pd{U}{x} = 1
+	\end{gather*}
+	\subsection{Top Boundary}
+	Zero Flux Boundary Condition:
+	\begin{gather*}
+		-\vec{n}\cdot\vec{\Gamma} = 0\\
+		-\left(0,1\right)\cdot\left(\mu\pd{U}{x},\mu\pd{U}{y}\right) = 0\\
+		-\mu\pd{U}{y} = 0\\
+		\mu\pd{U}{y} = 0
+	\end{gather*}
+	
+\end{document}
