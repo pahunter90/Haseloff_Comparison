@@ -89,5 +89,28 @@
 		-\mu\pd{U}{y} = 0\\
 		\mu\pd{U}{y} = 0
 	\end{gather*}
+	\subsection{Bottom Boundary - Stream}
+	Zero Flux Boundary Condition:
+	\begin{gather*}
+		-\vec{n}\cdot\vec{\Gamma} = 0\\
+		-\left(0,-1\right)\cdot\left(\mu\pd{U}{x},\mu\pd{U}{y}\right) = 0\\
+		\mu\pd{U}{y} = 0
+	\end{gather*}
+	\subsection{Bottom Boundary - Ridge (No Slip)}
+	Dirichlet Boundary Condition:
+	\begin{gather*}
+		U = r\\
+		r = 0 \implies U = 0
+	\end{gather*}
+	\subsection{Bottom Boundary - Ridge (Slip)}
+	Flux/Source Boundary Condition:
+	\begin{gather*}
+		-\vec{n}\cdot\vec{\Gamma} = g-qu\\
+		\vec{n} = \left(0,-1\right)\\
+		\vec{\Gamma} = \left(\mu\pd{U}{x},\mu\pd{U}{y}\right)\\
+		-\vec{n}\cdot\vec{\Gamma} = \mu\pd{U}{y}\\
+		\text{Set: }g = \tau\frac{U}{\sqrt{U^2+\varepsilon^2V^2}},\ q = 0 \implies \mu\pd{U}{y} = \tau\frac{U}{\sqrt{U^2+\varepsilon^2V^2}}\\
+		\text{As: }\sqrt{U^2+\varepsilon^2V^2}\rightarrow 0,\ \mu\pd{U}{y} \rightarrow \infty
+	\end{gather*}
 	
 \end{document}
