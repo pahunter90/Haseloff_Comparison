@@ -1,0 +1,88 @@
+\documentclass[10pt, letterpaper, twoside]{article}
+\usepackage{mathtools}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+
+\title{Haseloff Conversion from Temperature Independent to Temperature Dependent}
+\author{Pierce Hunter}
+\date{4/8/2019}
+
+\begin{document}
+	\maketitle
+	
+	\section{Velocity}
+	\subsection{Governing Equations}
+	The governing equations for velocity remain untouched when changing from independent to dependent:
+	\begin{align*}
+		\pd{}{x}\left(\mu\pd{u}{x}\right) + \pd{}{y}\left(\mu\pd{u}{y}\right)& = 0\\
+		\pd{}{x}\left(2\mu\pd{v}{x}\right) + \pd{}{y}\left[\mu\left(\pd{v}{y}+\pd{w}{x}\right)\right] - \pd{p}{x}& = 0\\
+		\pd{}{x}\left[\mu\left(\pd{v}{y}+\pd{w}{x}\right)\right] + \pd{}{y}\left(2\mu\pd{w}{y}\right) - \pd{p}{y}& = 0\\
+		\pd{v}{x} + \pd{w}{y}& = 0
+	\end{align*}
+	\subsection{Viscosity}
+	There are two options with how to convert the viscosity equation from temperature independent to temperature dependent:
+	\begin{enumerate}
+		\item Use the viscosity equation presented in Suckale et al. 2014
+		\item Change only the parameter $ A $ from constant to variable
+	\end{enumerate}
+	\subsubsection{Suckale et al. 2014 Viscosity Model}
+	Suckale presents $ \mu $ as:
+	\begin{equation*}
+		\mu = \frac{1}{2}\left(D_c + \frac{1}{3}G_c\tau_{\scriptscriptstyle E}^2\right)^{-1}
+	\end{equation*}
+	Which relies on the three variables $ D_c $, $ G_c $, and $ \tau_{\scriptscriptstyle E} $:
+	\begin{align*}
+		D_c& = \frac{42\Omega B}{k_BTd^2}\exp\left(-\frac{Q}{RT}\right)\\
+		G_c& = AE\exp\left[-\frac{Q}{R}\left(\frac{1}{T}-\frac{1}{T^\ast}\right)\right]\tau_{\scriptscriptstyle E}^2\\
+		\tau_{\scriptscriptstyle E}& = \sqrt{\frac{1}{3}\left[\frac{F}{\sqrt[3]{2}G_c^2}+\frac{\sqrt[3]{2}D_c^2}{F}-2\frac{D_c}{G_c}\right]}
+	\end{align*}
+	These, in turn, introduce two additional variables: $ F $ and $ Q $
+	\begin{align*}
+		F& = \sqrt[3]{27\dot{\epsilon}_{\scriptscriptstyle E}^2G_c^4 + 3\sqrt{3\left(27\dot{\epsilon}_{\scriptscriptstyle E}^4G_c^8 + 4\dot{\epsilon}_{\scriptscriptstyle E}^2D_c^3G_c^7\right)} + 2D_c^3G_c^3}\\
+		Q& = Q_l + \frac{Q_h-Q_l}{2}\text{heavi}\left(T-T^\ast\right)
+	\end{align*}
+	\subsubsection{Change to a Variable form of $ A $}
+	\begin{equation*}
+		A\left(T\right) = A\exp\left[-\frac{Q}{R}\left(\frac{1}{T}-\frac{1}{T^\ast}\right)\right]
+	\end{equation*}
+	Which requires $ Q $ as above:
+	\begin{equation*}
+		Q = Q_l + \frac{Q_h-Q_l}{2}\text{heavi}\left(T-T^\ast\right)
+	\end{equation*}
+	\subsection{Boundary Conditons and Additional Equations}
+	All other equations and all boundary conditions remain unchanged.
+	
+	\section{Temperature}
+	\subsection{Governing Equation}
+	The governing equation for temperature will not change when conversion takes place unless the temperature dependent forms of $ k $ and $ c_p $ are used:
+	\begin{equation*}
+		k\left(\pd{^2T}{x^2} + \pd{^2T}{y^2}\right) = \rho c_p\left(v_m\pd{T}{x}+v\pd{T}{x}+w\pd{T}{y}\right) - a
+	\end{equation*}
+	With temperature dependent $ k $ (and optional $ c_p $):
+	\begin{equation*}
+		\pd{}{x}\left(k\pd{T}{x}\right) + \pd{}{y}\left(k\pd{T}{y}\right) = \rho c_p\left(v_m\pd{T}{x}+v\pd{T}{x}+w\pd{T}{y}\right) - a
+	\end{equation*}
+	\subsection{Shear Heating $ a $}
+	Again, there are two options for converting shear heating:
+	\begin{enumerate}
+		\item Use the Suckale model $ a = 2\tau_{\scriptscriptstyle E}\dot{\epsilon}_{\scriptscriptstyle E} $
+		\item Change only parameter $ A $ from constant to variable
+	\end{enumerate}
+	\subsubsection{Suckale et al. 2014 Shear Heating Model $ a = 2\tau_{\scriptscriptstyle E}\dot{\epsilon}_{\scriptscriptstyle E} $}
+	The shear heating presented in Suckale's paper requires $ \tau_{\scriptscriptstyle E} $ and $ \dot{\epsilon}_{\scriptscriptstyle E} $:
+	\begin{equation}
+		\dot{\epsilon}_{\scriptscriptstyle E} =\frac{1}{2}\sqrt{\left(\pd{u}{x}\right)^2 + \left(\pd{u}{y}\right)^2}
+	\end{equation}
+	with $ \tau_{\scriptscriptstyle E} $ as in the viscosity model.
+	It could also be important to update the equation for $ \dot{\epsilon}_{\scriptscriptstyle E} $ to include the advection terms:
+	\begin{equation*}
+		\dot{\epsilon}_{\scriptscriptstyle E} = \left(\left|\pd{u}{y}\right|^2 + \left|\pd{u}{z}\right|^2 + \left|\pd{v}{z} + \pd{w}{y}\right|^2 + 2\left|\pd{v}{y}\right|^2 + 2\left|\pd{w}{z}\right|^2\right)
+	\end{equation*}
+	\subsubsection{Change to a Variable form of $ A $}
+	As above.
+	\subsection{Boundary Conditions and Additional Equations}
+	All other equations and all boundary conditions remain unchanged (except possibly with a temperature dependent $ k $).
+	
+\end{document}
